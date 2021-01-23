@@ -1,9 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { Navbar } from './components/Navbar'
-import { About } from './pages/About'
-import { Home } from './pages/Home'
+import { Navbar } from './components/Navbar';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { Game } from './pages/Game';
 
 const App: React.FC = () => {
   return (
@@ -13,10 +14,11 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/about" component={About} />
+          <Route path="/game" component={Game} />
         </Switch>
       </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;
