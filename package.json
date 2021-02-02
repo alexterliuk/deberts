@@ -1,7 +1,10 @@
 {
   "name": "deberts",
   "version": "0.1.0",
+  "description": "Deberts - playing card game",
   "private": true,
+  "author": "Alex Terliuk <alex.terliuk@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@reduxjs/toolkit": "^1.5.0",
