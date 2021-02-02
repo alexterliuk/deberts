@@ -1,5 +1,5 @@
 import { UPDATE_PLAYERS_SCORES } from './actionTypes';
-import { Player } from '../../data/players';
+import { Player } from '../../deberts';
 
 export interface UpdatePlayersScoresAction {
   type: typeof UPDATE_PLAYERS_SCORES;
