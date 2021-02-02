@@ -1,6 +1,6 @@
 import { UPDATE_PLAYERS_SCORES } from './actionTypes';
 import { PlayerScore, UpdatePlayersScoresAction } from './types';
-import players from '../../data/players';
+import { players } from '../../deberts';
 
 const initialState: PlayerScore[] = players.map((pl) => ({
   name: pl.name,
