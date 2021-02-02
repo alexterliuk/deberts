@@ -1,17 +1,15 @@
 import React, { useState, ChangeEvent } from 'react';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { FormControl, Select, MenuItem } from '@material-ui/core';
 import { MainButtonMdNoMedia as StartButton } from './composed/buttons';
+import getCenteredPanel from './pre-composed/get-centered-panel';
+import makeGameToken from './utils/make-game-token';
+import { allowedPlayersQty, AllowedPlayersQty } from '../deberts';
 
-const Panel = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 30px 0 40px;
-  max-width: 360px;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-`;
+const Panel = getCenteredPanel({
+  padding: '30px 0 40px',
+});
 
 const Title = styled.span`
   font-size: 1.5rem;
@@ -28,13 +26,27 @@ const StartButtonContainer = styled.div`
 
 const StartNewGame = () => {
   const [playersQty, setPlayersQty] = useState('');
+  const [gameToken, setGameToken] = useState('');
 
   const handleChange = (event: ChangeEvent<{ value: unknown }>) => {
     setPlayersQty(event.target.value as string);
   };
 
-  return (
-    <Panel>
+  const handleClick = () => {
+    if (allowedPlayersQty.includes(+playersQty as AllowedPlayersQty)) {
+      setGameToken(() => makeGameToken(8));
+    }
+  };
+
+  return gameToken ? (
+    <Redirect
+      to={{
+        pathname: `/game/${gameToken}`,
+        search: `?playersQty=${playersQty}`,
+      }}
+    />
+  ) : (
+    <Panel className="z-depth-1">
       <Title>Select quantity of players</Title>
       <SelectContainer>
         <FormControl>
@@ -43,14 +55,20 @@ const StartNewGame = () => {
             onChange={handleChange}
             inputProps={{ 'aria-label': 'Without label' }}
           >
-            <MenuItem value="2">2</MenuItem>
-            <MenuItem value="3">3</MenuItem>
-            <MenuItem value="4">4</MenuItem>
+            {allowedPlayersQty.map((q) => (
+              <MenuItem key={q} value={q}>
+                {q}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </SelectContainer>
       <StartButtonContainer>
-        <StartButton variant="contained" disabled={!playersQty}>
+        <StartButton
+          variant="contained"
+          disabled={!playersQty}
+          onClick={handleClick}
+        >
           Start game
         </StartButton>
       </StartButtonContainer>
