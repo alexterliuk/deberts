@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { spacing, spacingRect, mainBtnStyle } from './globalStylesSets';
 
-// prettier-ignore
 const joinStyles = (styles: string[][]) =>
   styles.map(s => s.join(':')).join(';');
 
