@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useState } from 'react';
 import translations from '../translations';
 
+export const languages: Language[] = ['UA', 'RU', 'EN'];
 export type Language = 'UA' | 'RU' | 'EN';
 export type TranslationKey = keyof typeof translations.UA;
 

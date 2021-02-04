@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SwitchLanguage from './SwitchLanguage';
 
-export const Navbar: React.FC = () => (
+export const Navbar = () => (
   <nav>
     <div className="nav-wrapper cyan darken-1 px1">
       <NavLink to="/" className="brand-logo">
         Redux + TypeScript
       </NavLink>
+      <SwitchLanguage />
       <ul className="right hide-on-med-and-down">
-        <li cy-data="home-nav-link">
+        <li>
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
