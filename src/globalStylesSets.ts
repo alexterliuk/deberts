@@ -4,12 +4,6 @@ import {
   spacingRect as _spacingRect,
 } from './components/utils/spacing';
 
-export const mainBtnStyle = [
-  ['--color-btn-main', colors.lightBlue[8]],
-  ['--color-btn-main-hover', colors.lightBlue[7]],
-  ['--color-btn-main-text', '#fff'],
-];
-
 export const spacing = [
   ['--spacing-xs', _spacing.xs],
   ['--spacing-sm', _spacing.sm],
@@ -24,4 +18,17 @@ export const spacingRect = [
   ['--spacing-rect-md', _spacingRect.md],
   ['--spacing-rect-lg', _spacingRect.lg],
   ['--spacing-rect-xl', _spacingRect.xl],
+];
+
+export const mainBtnStyle = [
+  ['--color-btn-main', colors.lightBlue[8]],
+  ['--color-btn-main-hover', colors.lightBlue[7]],
+  ['--color-btn-main-text', '#fff'],
+];
+
+export const switchLangBtnStyle = [
+  ['--color-lang-btn', 'white'],
+  ['--color-lang-btn-bg', colors.blueGrey[5]],
+  ['--color-lang-btn-bg-hover', 'black'],
+  ['--color-lang-btn-bg-active', 'black'],
 ];

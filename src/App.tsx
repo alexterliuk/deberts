@@ -6,7 +6,7 @@ import { About } from './pages/About';
 import { Game } from './pages/Game';
 import PlayGame from './pages/PlayGame';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Navbar />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const About: React.FC = () => {
+export const About = () => {
   const history = useHistory();
 
   return (

@@ -12,7 +12,6 @@ export const getPrevBreakpoint = (
   bp: keyof typeof breakpoints,
   prevPrev?: 2
 ) => {
-  // prettier-ignore
   const idx = bps.findIndex(k => bp === k);
 
   // look at -2 bp, then at -1 bp, if nothing there return just bp
