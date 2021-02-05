@@ -10,7 +10,7 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const ContainerInner = styled.div`
+const SwitchLangButtons = styled.div`
   position: absolute;
   right: 0;
   top: calc(50% - 8px);
@@ -46,41 +46,47 @@ const LangBtn = styled.button`
   }
 `;
 
+const CurrLangBtn = LangBtn;
+
 const SwitchLanguage = () => {
   const { lang, changeLang } = useContext(LangContext);
   const [currLang, setCurrLang] = useState(lang);
-  const [selBtnOpacity, setSelBtnOpacity] = useState(1);
-  const [btnsOpacity, setBtnsOpacity] = useState(0);
-  const [visibility, setVisibility] = useState<'hidden' | 'initial'>('hidden');
+  const [currLangBtnOpacity, setCurrLangBtnOpacity] = useState(1);
+  const [buttonsOpacity, setButtonsOpacity] = useState(0);
+  const [buttonsVisibility, setButtonsVisibility] = useState<
+    'hidden' | 'initial'
+  >('hidden');
 
-  const toggle = () => {
-    setVisibility(() => (visibility === 'hidden' ? 'initial' : 'initial'));
-    setSelBtnOpacity(() => (selBtnOpacity ? 0 : 1));
-    setBtnsOpacity(() => (btnsOpacity ? 0 : 1));
+  const showSwitchLangButtons = (show: boolean) => {
+    setCurrLangBtnOpacity(() => (show ? 0 : 1));
+    setButtonsOpacity(() => (show ? 1 : 0));
+    setTimeout(
+      () => {
+        setButtonsVisibility(() => (show ? 'initial' : 'hidden'));
+      },
+      show ? 0 : transitionDuration
+    );
   };
 
   const updateLang = (clickedLang: Language) => {
     changeLang(clickedLang);
     setCurrLang(() => clickedLang);
-    setSelBtnOpacity(() => (selBtnOpacity ? 0 : 1));
-    setBtnsOpacity(() => (btnsOpacity ? 0 : 1));
-
-    setTimeout(() => {
-      setVisibility(() => (visibility === 'hidden' ? 'initial' : 'initial'));
-    }, transitionDuration);
+    showSwitchLangButtons(false);
   };
 
   return (
     <div className="right">
       <Container>
-        <LangBtn
-          onClick={() => toggle()}
+        <CurrLangBtn
+          onClick={() => showSwitchLangButtons(true)}
           className="active"
-          style={{ opacity: selBtnOpacity }}
+          style={{ opacity: currLangBtnOpacity }}
         >
           {currLang}
-        </LangBtn>
-        <ContainerInner style={{ visibility, opacity: btnsOpacity }}>
+        </CurrLangBtn>
+        <SwitchLangButtons
+          style={{ visibility: buttonsVisibility, opacity: buttonsOpacity }}
+        >
           {languages
             .filter(l => l !== currLang)
             .concat(currLang)
@@ -93,7 +99,7 @@ const SwitchLanguage = () => {
                 {lng}
               </LangBtn>
             ))}
-        </ContainerInner>
+        </SwitchLangButtons>
       </Container>
     </div>
   );
