@@ -1,10 +1,7 @@
 import React, { createContext, ReactNode, useState } from 'react';
-import translations from '../translations';
+import translations, { Language, firstLanguage } from '../translations';
 
-export const languages: Language[] = ['UA', 'RU', 'EN'];
-export type Language = 'UA' | 'RU' | 'EN';
-export type TranslationKey = keyof typeof translations.UA;
-
+// TODO: this might crash if user disabled localStorage in browser
 const langStorage = {
   get() {
     return window.localStorage.getItem('lang') as Language;
@@ -18,16 +15,16 @@ const langStorage = {
 const LangContext = createContext<{
   lang: Language;
   changeLang: (newLang: Language) => void;
-  translations: typeof translations.UA;
+  translations: typeof translations[typeof firstLanguage];
 }>({
-  lang: 'UA',
+  lang: firstLanguage,
   changeLang: () => {},
-  translations: translations.UA,
+  translations: translations[firstLanguage], // eslint-disable-line
 });
 
 export const LangProvider = ({ children }: { children: ReactNode }) => {
   const storedLang = langStorage.get();
-  const [lang, setLang] = useState<Language>(storedLang || 'UA');
+  const [lang, setLang] = useState<Language>(storedLang || firstLanguage);
 
   const provider = {
     lang,

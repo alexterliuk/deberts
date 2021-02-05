@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import LangContext, { TranslationKey } from '../features/LangContext';
+import LangContext from '../features/LangContext';
+import { TranslationKey } from '../translations';
 
 const Text = ({ translationKey }: TextProps) => {
   const langContext = useContext(LangContext);

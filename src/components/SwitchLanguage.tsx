@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import styled from 'styled-components';
-import LangContext, { languages, Language } from '../features/LangContext';
+import styled from 'styled-components/macro';
+import LangContext from '../features/LangContext';
+import { languages, Language } from '../translations';
 
 const transitionDuration = 500;
 
