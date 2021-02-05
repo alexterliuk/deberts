@@ -55,7 +55,7 @@ const StartNewGame = () => {
             onChange={handleChange}
             inputProps={{ 'aria-label': 'Without label' }}
           >
-            {allowedPlayersQty.map((q) => (
+            {allowedPlayersQty.map(q => (
               <MenuItem key={q} value={q}>
                 {q}
               </MenuItem>

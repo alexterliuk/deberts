@@ -2,7 +2,7 @@ import { UPDATE_PLAYERS_SCORES } from './actionTypes';
 import { PlayerScore, UpdatePlayersScoresAction } from './types';
 import { players } from '../../deberts';
 
-const initialState: PlayerScore[] = players.map((pl) => ({
+const initialState: PlayerScore[] = players.map(pl => ({
   name: pl.name,
   score: pl.score,
 }));
