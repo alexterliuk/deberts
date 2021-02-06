@@ -19,3 +19,8 @@ export const getPrevBreakpoint = (
 };
 
 export default breakpoints;
+export const { xs } = breakpoints;
+export const { sm } = breakpoints;
+export const { md } = breakpoints;
+export const { lg } = breakpoints;
+export const { xl } = breakpoints;
