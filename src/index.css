@@ -21,3 +21,23 @@ code {
   display: flex;
   justify-content: space-between;
 }
+
+button:focus {
+  background-color: inherit;
+}
+
+/* in case if need to convert links to button look */
+/* nav ul a {
+  display: inline;
+  padding: 8px 15px 10px;
+  border-radius: 4px;
+} */
+
+a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+nav ul a:hover,
+nav ul a.active {
+  background-color: rgba(0, 0, 0, 0.3);
+}

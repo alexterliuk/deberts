@@ -1,6 +1,8 @@
 import styled from 'styled-components/macro';
 import { Button } from '@material-ui/core';
 import breakpoints, {
+  md,
+  sm,
   getPrevBreakpoint as getPrevSize,
 } from '../utils/breakpoints';
 
@@ -23,16 +25,21 @@ const getMainButton = (
       padding: var(--spacing-rect-${size});
       color: var(--color-btn-main-text);
       background-color: var(--color-btn-main);
-      &: hover {
+      &:hover {
         background-color: var(--color-btn-main-hover);
+      }
+      &[disabled] {
+        color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
       }
       ${withMedia
         ? `
-        @media (max-width: ${breakpoints.md}) {
+        @media (max-width: ${md}) {
           font-size: ${fontSizes[getPrevSize(size) as keyof typeof fontSizes]};
           padding: var(--spacing-rect-${getPrevSize(size)});
         }
-        @media (max-width: ${breakpoints.sm}) {
+        @media (max-width: ${sm}) {
           font-size: ${fontSizes[getPrevSize(size, 2) as keyof typeof fontSizes]};
           padding: var(--spacing-rect-${getPrevSize(size, 2)});
         }
