@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import {
+  baseColor,
   spacing,
   spacingRect,
   mainBtnStyle,
@@ -11,6 +12,7 @@ const joinStyles = (styles: string[][]) =>
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    ${joinStyles(baseColor)};
     ${joinStyles(spacing)};
     ${joinStyles(spacingRect)};
     ${joinStyles(mainBtnStyle)};

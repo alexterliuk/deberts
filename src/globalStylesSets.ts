@@ -4,6 +4,13 @@ import {
   spacingRect as _spacingRect,
 } from './components/utils/spacing';
 
+export const baseColor = [
+  ['--base-color-dark', colors.blueGrey[8]],
+  ['--base-color', colors.blueGrey[7]],
+  ['--base-color-light', colors.blueGrey[6]],
+  ['--base-color-pale', colors.blueGrey[3]],
+];
+
 export const spacing = [
   ['--spacing-xs', _spacing.xs],
   ['--spacing-sm', _spacing.sm],
