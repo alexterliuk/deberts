@@ -1,25 +1,41 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components/macro';
 import SwitchLanguage from './SwitchLanguage';
+
+const Container = styled.div`
+  background-color: var(--base-color-dark);
+  padding: 0 1rem;
+`;
+
+const List = styled.ul`
+  margin-right: 1rem;
+`;
 
 export const Navbar = () => (
   <nav>
-    <div className="nav-wrapper cyan darken-1 px1">
+    <Container className="nav-wrapper">
       <NavLink to="/" className="brand-logo">
         Redux + TypeScript
       </NavLink>
       <SwitchLanguage />
-      <ul className="right hide-on-med-and-down">
+      <List className="right hide-on-med-and-down">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink exact to="/" activeClassName="active">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about" activeClassName="active">
+            About
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/game">Deberts</NavLink>
+          <NavLink to="/game" activeClassName="active">
+            Deberts
+          </NavLink>
         </li>
-      </ul>
-    </div>
+      </List>
+    </Container>
   </nav>
 );
