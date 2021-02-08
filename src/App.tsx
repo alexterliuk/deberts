@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { Home } from './pages/Home';
-import { About } from './pages/About';
+import { GameRules } from './pages/GameRules';
 import { Game } from './pages/Game';
 import PlayGame from './pages/PlayGame';
 
@@ -12,8 +12,8 @@ const App = () => {
       <Navbar />
       <div className="container">
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/game-rules">
+            <GameRules />
           </Route>
           <Route path="/game/:token" exact>
             <PlayGame />
