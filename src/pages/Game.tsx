@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import getSection from '../components/pre-composed/get-section';
 import StartNewGame from '../components/StartNewGame';
-import { md } from '../components/utils/breakpoints';
+import { md } from '../data';
 
 const Container = styled.div`
   padding-bottom: 4rem;

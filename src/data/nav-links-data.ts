@@ -7,8 +7,10 @@ export interface NavLinkData {
 
 export type BarLink = { [x: string]: () => JSX.Element };
 
-export const linksData: NavLinkData[] = [
+const navLinksData: NavLinkData[] = [
   { to: '/', text: 'Home', icon: 'home', exact: true },
   { to: '/about', text: 'About', icon: 'info' },
   { to: '/game', text: 'New Game', icon: 'forward' },
 ];
+
+export default navLinksData;

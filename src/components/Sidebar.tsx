@@ -1,7 +1,7 @@
 import React, { useState, KeyboardEvent, MouseEvent } from 'react';
 import styled from 'styled-components/macro';
 import { Icon, Drawer, Button } from '@material-ui/core';
-import { NavLinkData } from '../data/nav-links';
+import { NavLinkData } from '../data';
 
 const Container = styled.div`
   display: inline-block;

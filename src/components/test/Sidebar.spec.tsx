@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 import Navbar from '../Navbar';
-import { linksData } from '../../data/nav-links';
+import { navLinksData as linksData } from '../../data';
 
 describe(`Sidebar (in Navbar)`, () => {
   const wrapper = mount(
