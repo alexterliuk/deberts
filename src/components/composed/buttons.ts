@@ -1,10 +1,11 @@
 import styled from 'styled-components/macro';
 import { Button } from '@material-ui/core';
-import breakpoints, {
+import {
+  breakpoints,
   md,
   sm,
   getPrevBreakpoint as getPrevSize,
-} from '../utils/breakpoints';
+} from '../../data';
 
 const fontSizes = {
   xs: '0.75rem',

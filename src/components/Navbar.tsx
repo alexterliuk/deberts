@@ -2,10 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { Icon } from '@material-ui/core';
-import { linksData, BarLink } from '../data/nav-links';
 import Sidebar from './Sidebar';
 import SwitchLanguage from './SwitchLanguage';
-import colors from './utils/colors';
+import { grey, navLinksData as linksData, BarLink } from '../data';
 
 // sidebar link
 const SBLink = styled(NavLink)`
@@ -13,7 +12,7 @@ const SBLink = styled(NavLink)`
   padding: 1em;
   display: flex;
   &.active {
-    background-color: ${colors.grey[2]};
+    background-color: ${grey[2]};
   }
 `;
 

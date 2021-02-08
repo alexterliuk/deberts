@@ -1,14 +1,15 @@
-import colors from './components/utils/colors';
 import {
+  blueGrey,
+  lightBlue,
   spacing as _spacing,
   spacingRect as _spacingRect,
-} from './components/utils/spacing';
+} from './data';
 
 export const baseColor = [
-  ['--base-color-dark', colors.blueGrey[8]],
-  ['--base-color', colors.blueGrey[7]],
-  ['--base-color-light', colors.blueGrey[6]],
-  ['--base-color-pale', colors.blueGrey[3]],
+  ['--base-color-dark', blueGrey[8]],
+  ['--base-color', blueGrey[7]],
+  ['--base-color-light', blueGrey[6]],
+  ['--base-color-pale', blueGrey[3]],
 ];
 
 export const spacing = [
@@ -28,14 +29,14 @@ export const spacingRect = [
 ];
 
 export const mainBtnStyle = [
-  ['--color-btn-main', colors.lightBlue[8]],
-  ['--color-btn-main-hover', colors.lightBlue[7]],
+  ['--color-btn-main', lightBlue[8]],
+  ['--color-btn-main-hover', lightBlue[7]],
   ['--color-btn-main-text', '#fff'],
 ];
 
 export const switchLangBtnStyle = [
   ['--color-lang-btn', 'white'],
-  ['--color-lang-btn-bg', colors.blueGrey[5]],
+  ['--color-lang-btn-bg', blueGrey[5]],
   ['--color-lang-btn-bg-hover', 'black'],
   ['--color-lang-btn-bg-active', 'black'],
 ];
