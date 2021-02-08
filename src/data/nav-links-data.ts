@@ -1,6 +1,8 @@
+import { TranslationKey } from '../translations';
+
 export interface NavLinkData {
   to: string;
-  text: string;
+  translationKey: TranslationKey;
   icon: string;
   exact?: boolean;
 }
@@ -8,9 +10,9 @@ export interface NavLinkData {
 export type BarLink = { [x: string]: () => JSX.Element };
 
 const navLinksData: NavLinkData[] = [
-  { to: '/', text: 'Home', icon: 'home', exact: true },
-  { to: '/about', text: 'About', icon: 'info' },
-  { to: '/game', text: 'New Game', icon: 'forward' },
+  { to: '/', translationKey: 'HOME', icon: 'home', exact: true },
+  { to: '/game-rules', translationKey: 'GAME_RULES', icon: 'info' },
+  { to: '/game', translationKey: 'NEW_GAME', icon: 'forward' },
 ];
 
 export default navLinksData;

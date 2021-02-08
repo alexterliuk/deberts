@@ -50,29 +50,25 @@ const Sidebar = ({
     setOpened(show);
   };
 
-  const list = () => (
-    <ListWrapper
-      role="presentation"
-      onClick={showDrawer(false)}
-      onKeyDown={showDrawer(false)}
-    >
-      <List>
-        {navLinks.map((SBLink, i) => (
-          <ListItem key={linksData[i].text}>
-            <SBLink />
-          </ListItem>
-        ))}
-      </List>
-    </ListWrapper>
-  );
-
   return (
     <Container className="hide-on-large-only">
       <Btn onClick={showDrawer(true)}>
         <Icon>menu</Icon>
       </Btn>
       <Drawer anchor="left" open={opened} onClose={showDrawer(false)}>
-        {list()}
+        <ListWrapper
+          role="presentation"
+          onClick={showDrawer(false)}
+          onKeyDown={showDrawer(false)}
+        >
+          <List>
+            {navLinks.map((SBLink, i) => (
+              <ListItem key={linksData[i].translationKey}>
+                <SBLink />
+              </ListItem>
+            ))}
+          </List>
+        </ListWrapper>
       </Drawer>
     </Container>
   );
