@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import getSection from '../components/pre-composed/get-section';
 import StartNewGame from '../components/StartNewGame';
+import Text from '../components/Text';
 import { md } from '../data';
 
 const Container = styled.div`
@@ -19,7 +20,9 @@ const Section = styled(getSection('auto'))`
 export const Game = () => {
   return (
     <Container>
-      <h4 className="center">New Game</h4>
+      <h4 className="center">
+        <Text translationKey="NEW_GAME" />
+      </h4>
       <Section>
         <StartNewGame />
       </Section>
