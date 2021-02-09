@@ -24,10 +24,13 @@ describe(`Sidebar (in Navbar)`, () => {
     expect(aTags.get(0).props.className.includes('active')).toBe(true);
   });
 
-  it(`all Sidebar's NavLinks have texts according to linksData`, () => {
+  it(`all Sidebar's NavLinks have Texts with translationKeys according to linksData`, () => {
     linksData.forEach((currData, i) => {
-      // children[0] is icon, children[1] is span with text
-      expect(aTags.get(i).props.children[1].props.children).toBe(currData.text);
+      const aTagProps = aTags.get(i).props;
+      // children[0] is icon, children[1] is SBLinkTextWrapper
+      const TextWrapperProps = aTagProps.children[1].props;
+      const TextProps = TextWrapperProps.children.props;
+      expect(TextProps.translationKey).toBe(currData.translationKey);
     });
   });
 });

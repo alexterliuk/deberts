@@ -24,9 +24,11 @@ describe(`Navbar (desktop view)`, () => {
     expect(aTags.get(1).props.className.includes('active')).toBe(true);
   });
 
-  it(`all page NavLinks have texts according to linksData`, () => {
+  it(`all page NavLinks have Texts with translationKeys according to linksData`, () => {
     linksData.forEach((currData, i) => {
-      expect(aTags.get(i + 1).props.children).toBe(currData.text);
+      const aTagProps = aTags.get(i + 1).props;
+      const TextProps = aTagProps.children.props;
+      expect(TextProps.translationKey).toBe(currData.translationKey);
     });
   });
 });
