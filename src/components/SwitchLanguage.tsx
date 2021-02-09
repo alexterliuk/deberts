@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, FocusEvent } from 'react';
 import styled from 'styled-components/macro';
 import LangContext from '../features/LangContext';
 import { languages, Language } from '../translations';
@@ -74,9 +74,21 @@ const SwitchLanguage = () => {
     showSwitchLangButtons(false);
   };
 
+  const handleBlur = (elCurr: HTMLElement, elRel: EventTarget | null) => {
+    if (!buttonsOpacity) return;
+    // if clicked outside SwitchLanguage, hide SwitchLangButtons
+    if (!elCurr.contains(elRel as Node)) {
+      showSwitchLangButtons(false);
+    }
+  };
+
+  const onBlur = (e: FocusEvent<HTMLElement>) => {
+    handleBlur(e.currentTarget, e.relatedTarget);
+  };
+
   return (
     <div className="right">
-      <Container>
+      <Container onBlur={onBlur}>
         <CurrLangBtn
           onClick={() => showSwitchLangButtons(true)}
           className="active"
