@@ -27,14 +27,20 @@ const links = linksData.reduce(
 
     acc.navbar[translationKey] = () => (
       <NavLink exact={exact} to={to} activeClassName="active">
-        <Text translationKey={translationKey} />
+        <Text
+          translationKey={translationKey}
+          transformWhenLang={{ EN: 'capWords' }}
+        />
       </NavLink>
     );
     acc.sidebar[translationKey] = () => (
       <SBLink exact={exact} to={to} activeClassName="active">
         <Icon>{icon}</Icon>
         <SBLinkTextWrapper>
-          <Text translationKey={translationKey} />
+          <Text
+            translationKey={translationKey}
+            transformWhenLang={{ EN: 'capWords' }}
+          />
         </SBLinkTextWrapper>
       </SBLink>
     );
