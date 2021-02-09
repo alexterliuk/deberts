@@ -16,6 +16,11 @@ describe(`transformString`, () => {
     expect(res).toBe('Great show');
   });
 
+  it(`[capFirstOnly]: capitalizes first letter, transforms all other to lower case`, () => {
+    const res = trf('lonG rOAd', 'capFirstOnly');
+    expect(res).toBe('Long road');
+  });
+
   it(`[capAll]: capitalizes all letters`, () => {
     const res = trf('winter has come', 'capAll');
     expect(res).toBe('WINTER HAS COME');

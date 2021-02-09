@@ -16,14 +16,33 @@ const changeAllCase = (s: string, to: 'upp' | 'low') =>
 const capitalizeAllLetters = (s: string) => changeAllCase(s, 'upp');
 const toLowerCaseAllLetters = (s: string) => changeAllCase(s, 'low');
 
-const transformStringTypes = {
+const transformers = {
   capWords: capitalizeEachWord,
   capFirst: capitalizeFirstLetter,
+  capFirstOnly: (s: string) => capitalizeFirstLetter(toLowerCaseAllLetters(s)),
   capAll: capitalizeAllLetters,
   lowAll: toLowerCaseAllLetters,
 };
-export type TransformStringTypes = keyof typeof transformStringTypes;
-
-export default function transformString(s: string, type: TransformStringTypes) {
-  return !s ? s : transformStringTypes[type](s);
+export interface TransformerType {
+  capWords: boolean;
+  capFirst: boolean;
+  capFirstOnly: boolean;
+  capAll: boolean;
+  lowAll: boolean;
 }
+export const transformerTypes: Array<keyof TransformerType> = [
+  'capWords',
+  'capFirst',
+  'capFirstOnly',
+  'capAll',
+  'lowAll',
+];
+
+const transformString = (s: string, type: keyof TransformerType) => {
+  if (!s || typeof transformers[type] !== 'function') {
+    return s;
+  }
+  return transformers[type](s);
+};
+
+export default transformString;
