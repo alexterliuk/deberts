@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { FormControl, Select, MenuItem } from '@material-ui/core';
 import { MainButtonMdNoMedia as StartButton } from './composed/buttons';
 import getCenteredPanel from './pre-composed/get-centered-panel';
+import Text from './Text';
 import makeGameToken from './utils/make-game-token';
 import { allowedPlayersQty, AllowedPlayersQty } from '../deberts';
 
@@ -47,7 +48,9 @@ const StartNewGame = () => {
     />
   ) : (
     <Panel className="z-depth-1">
-      <Title>Select quantity of players</Title>
+      <Title>
+        <Text translationKey="START_NEW_GAME.SEL_PLAYERS_QTY" />
+      </Title>
       <SelectContainer>
         <FormControl>
           <Select
@@ -69,7 +72,7 @@ const StartNewGame = () => {
           disabled={!playersQty}
           onClick={handleClick}
         >
-          Start game
+          <Text translationKey="START_NEW_GAME.START_GAME" />
         </StartButton>
       </StartButtonContainer>
     </Panel>

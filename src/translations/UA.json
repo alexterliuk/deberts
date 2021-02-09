@@ -2,5 +2,8 @@
   "DEBERTS": "Деберц",
   "HOME": "Стартова",
   "GAME_RULES": "Правила гри",
-  "NEW_GAME": "Нова гра"
+  "NEW_GAME": "Нова гра",
+  "START_NEW_GAME.SEL_PLAYERS_QTY": "Оберіть кількість гравців",
+  "START_NEW_GAME.START_GAME": "Почати гру",
+  "GAME_ERR.INVALID_PLAYERS_QTY": "Неправильна кількість гравців"
 }
