@@ -27,7 +27,7 @@ const PlayGame = () => {
     </>
   ) : (
     <NotifyAndRedirectOnClose
-      message="Invalid quantity of players"
+      translationKey="GAME_ERR.INVALID_PLAYERS_QTY"
       redirectTo="/game"
     />
   );

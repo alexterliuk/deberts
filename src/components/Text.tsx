@@ -17,7 +17,7 @@ const Text = ({ translationKey, transformWhenLang, ...opts }: TextProps) => {
   return <span>{caseT ? transformString(translated, caseT) : translated}</span>;
 };
 
-interface TextProps extends Partial<TransformerType> {
+export interface TextProps extends Partial<TransformerType> {
   translationKey: TranslationKey;
   transformWhenLang?: { [LANG: string]: keyof TransformerType };
 }

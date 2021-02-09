@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import getSection from './pre-composed/get-section';
 import getCenteredPanel from './pre-composed/get-centered-panel';
 import CloseButton from './composed/CloseButton';
+import Text, { TextProps } from './Text';
 
 const Section = getSection();
 
@@ -18,8 +19,9 @@ const Message = styled.span`
 `;
 
 const NotifyAndRedirectOnClose = ({
-  message,
+  translationKey,
   redirectTo,
+  ...textOpts
 }: NotifyAndRedirectOnCloseProps) => {
   const [goRedirect, setGoRedirect] = useState(false);
 
@@ -33,7 +35,10 @@ const NotifyAndRedirectOnClose = ({
     <Section>
       <Panel className="z-depth-1">
         <CloseButton onClick={handleClick} />
-        <Message>{message}</Message>
+        <Message>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Text translationKey={translationKey} {...textOpts} />
+        </Message>
       </Panel>
     </Section>
   );
@@ -41,7 +46,6 @@ const NotifyAndRedirectOnClose = ({
 
 export default NotifyAndRedirectOnClose;
 
-interface NotifyAndRedirectOnCloseProps {
-  message: string;
+interface NotifyAndRedirectOnCloseProps extends TextProps {
   redirectTo?: string;
 }
